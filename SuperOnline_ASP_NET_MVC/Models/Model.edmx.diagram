@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a8ab27bce40a492793845816add24dce" Name="Diagram1">
+        <EntityTypeShape EntityType="SuperOnlineModel.Categoria" Width="1.5" PointX="1.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Comentario" Width="1.5" PointX="11.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Contenido_Listas" Width="1.5" PointX="9" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Detalle_pedido" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Gondola" Width="1.5" PointX="1.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Lista" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Pedido" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Producto" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Super_mercados" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Tipos" Width="1.5" PointX="3.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperOnlineModel.Usuario" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="SuperOnlineModel.fk_gondolaNombre" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_tipoNombre" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_comentarios_productoid" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_comentarios_usuarioid" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_cont_listas_id" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_cont_listas_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_det_pedidos_productoid" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_det_pedidosid" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_lista_usuarioid" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_pedidos_super_mercado" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_pedidos_usuarioid" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fk_productos_super_mercado" ManuallyRouted="false" />
+        <AssociationConnector Association="SuperOnlineModel.fktipoNombre" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

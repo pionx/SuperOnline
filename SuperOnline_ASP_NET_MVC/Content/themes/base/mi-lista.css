@@ -1,0 +1,107 @@
+
+        #lista-pasos {
+            background-color: #009688;
+            padding: 10px;
+            color: white;
+            border-radius: 2px;
+        }
+        #pasos {
+            background-color: #009688;
+            font-size: 20px;
+            margin-top: 80px;
+            
+        }
+        .super-imagen{
+            height: 160px;
+            width: 210px;
+            border: solid;
+            padding: 5px;
+            margin: 10px;
+            cursor: pointer;
+            
+        }
+        #super-mercados {
+            font-size: 20px;
+            padding: 5px;
+            
+        }
+        .sub-menu-tipo {
+            cursor: pointer;
+            padding: 3px;
+            border-radius:2px;
+        }
+        .list-style {
+            list-style-type: none;
+            margin: 3px;
+        }
+        .sub-menu-tipo:hover {
+            color: white;
+            background-color: #03A9F4;
+        }
+        #categoria {
+            border: solid;
+        }
+        .numero {
+            width: 20px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        #panel-lista {
+            margin: 0px;
+        }
+        .lista-item {
+            display: inline-block;
+        }
+        #menu-gondolas ul li {
+            color: blue;
+        }
+        #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+        #sortable li { margin: 0 3px 3px 3px; padding: 5px; padding-left: 1.5em; font-size: 1.4em; height: 40px; cursor: move; }
+        /*#sortable li span { position: absolute; margin-left: -1.3em; }*/
+        #draggable {  position: absolute; width: 450px; height: auto; padding: 0px; border: none; border-radius: 3px; }
+
+    #panel-title {
+        display: inline-block;
+    }
+    #div-minimizar {
+        display: inline-block;
+        margin-left: 80%;
+    }
+    #estacion {
+        width: 200px;
+        display: none;
+    }
+
+    #cuerpo-lista {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    #pie-lista {
+        padding: 7px;
+    }
+    #panel-utilizar-nombre {
+        margin-left: 10px;
+        width: 30%;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    .super-imagen-activa {
+        height: 160px;
+        width: 210px;
+        border: solid;
+        padding: 5px;
+        margin: 10px;
+        cursor: pointer;
+        display: inline-block;
+        background-color: #66F9FF;
+        border-color: #10364d;
+    }
+    #panel-lista {
+        padding: 0;
+    }
+    #guardar-lista {
+       margin-left: 60%; 
+    }
+

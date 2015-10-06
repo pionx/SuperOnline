@@ -1,0 +1,83 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.Producto
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Producto</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.producto_id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.producto_id)
+            @Html.ValidationMessageFor(model => model.producto_id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre)
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.marca)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.marca)
+            @Html.ValidationMessageFor(model => model.marca)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.contenido)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.contenido)
+            @Html.ValidationMessageFor(model => model.contenido)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.precio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.precio)
+            @Html.ValidationMessageFor(model => model.precio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tipo, "Tipos")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("tipo", String.Empty)
+            @Html.ValidationMessageFor(model => model.tipo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Super_mercado, "Super_mercados")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Super_mercado", String.Empty)
+            @Html.ValidationMessageFor(model => model.Super_mercado)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

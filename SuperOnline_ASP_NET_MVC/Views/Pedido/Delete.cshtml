@@ -1,0 +1,60 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.Pedido
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Pedido</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.pedido_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pedido_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.estado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.estado)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.total_precio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.total_precio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fecha)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Usuario.cedula)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Usuario.cedula)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Super_mercados.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Super_mercados.nombre)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

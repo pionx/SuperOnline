@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "JumboInicio";
+}
+
+<h2>JumboInicio</h2>
+
+
+<table>
+    <tr>
+        <th>
+            producto_id
+        </th>
+        <th>
+            nombre
+        </th>
+        <th>
+            marca
+        </th>
+        <th>
+            model.contenido
+        </th>
+        <th>
+            precio
+        </th>
+        <th>
+            tipo
+        </th>
+        <th>
+            nombre
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in ViewBag.productos) { 
+    <tr>
+        <td>
+            @item.producto_id
+        </td>
+        <td>
+            @item.nombre
+        </td>
+        <td>
+            @item.marca
+        </td>
+        <td>
+            @item.contenido
+        </td>
+        <td>
+            @item.precio
+        </td>
+        <td>
+            @item.tipo
+        </td>
+        <td>
+            @item.Super_mercado
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            
+        </td>
+    </tr>
+    }
+</table>

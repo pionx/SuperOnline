@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "miLista";
+}
+@using System.Linq
+
+<style>
+    #no-hay-lista {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    .super-imagen{
+            height: 160px;
+            width: 210px;
+            border: solid;
+            padding: 5px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #super-mercados {
+            font-size: 20px;
+            padding: 5px;
+        }
+        .super-imagen-activa {
+            height: 160px;
+            width: 210px;
+            border: solid;
+            padding: 5px;
+            margin: 10px;
+            cursor: pointer;
+            display: inline-block;
+            background-color: #66F9FF;
+            border-color: #10364d;
+        }
+    
+    
+</style>
+<script src="~/Scripts/jquery-1.11.2.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
+@if (ViewBag.listaExiste == true)
+{
+    <h2>Mi Lista</h2>
+
+    <div class="list-group col-lg-6">
+    <a href="#" class="list-group-item active">
+        @ViewBag.nombreLista
+    </a>
+    @{
+        int c=1;
+        foreach (var item in Model)
+        {   
+           
+            <a class="list-group-item">@(c) - @item.tipo</a>
+            c++;
+        }
+        
+    }
+</div>
+    <div class="col-lg-6">
+        <div class="col-lg-12">Puedes utilizar tu lista para encontrar más rápido tus productos</div>
+        <div class="col-lg-12"><button id="utilizar-lista" class=" col-lg-8 btn btn-default">Utilizar Lista</button></div>       
+    </div>
+    <div class="col-lg-7">
+        <a href="~/lista"><button id="modificar-lista" class="btn btn-default col-lg-5">Modificar Lista</button></a>
+        <button id="imprimir-lista" class="btn btn-default col-lg-5">Imprimir Lista</button>
+    </div>
+}else{
+    <div id="no-hay-lista" class="col-lg-12">No has creado lista de compras</div>
+    <div><a href="~/lista"><button  class="btn btn-default">Crear Lista</button></a></div>
+}
+
+<div id="elegir-super-mercado" class="col-lg-12" title="Utilzar lista">
+    <div class="col-lg-12">Puedes derigirte a cualquier Super Mercado con tu lista de compras</div>
+     @foreach(var item in ViewBag.superMercados)
+        {
+            <div>
+                <img class="super-imagen col-md-3" id="@item.nombre.Replace(" ", "_")" src="~/Images/mis-imagenes/super-mercados/@(item.nombre).png" />
+            </div>   
+        }
+    <div class="col-lg-12">
+        <button id="continuar" class="btn btn-default">Continuar</button>
+    </div>
+    <div id="mensaje" class="col-lg-12"></div>
+</div>
+
+ <script>
+
+     $('#elegir-super-mercado').hide();
+     $('#utilizar-lista').click(function () {
+         $("#elegir-super-mercado").dialog("open");
+         editarBotonCerrarDialogos();
+     });
+     $(function () {
+         $("#elegir-super-mercado").dialog({
+             autoOpen: false,
+             resizable: false,
+             width: "600px"
+         });
+        
+     });
+     function editarBotonCerrarDialogos() {
+         document.getElementsByClassName("ui-icon-closethick")[0].style.left = "0";
+         document.getElementsByClassName("ui-icon-closethick")[0].style.top = "0";
+         document.getElementsByClassName("ui-icon-closethick")[1].style.left = "0";
+         document.getElementsByClassName("ui-icon-closethick")[1].style.top = "0";
+     }
+
+     //----------------------------super Mercado
+     var superMercado = "";
+
+     //var superImagenesByClass = document.getElementsByClassName("super-imagen");
+     //var superImagenesById = [];
+
+     //for (var i = 0; i < superImagenesByClass.length; i++) {
+     //    superImagenesById.push(document.getElementById(superImagenesByClass[i].id.replace("_", " ")));
+     //}
+
+     var superImagenes = document.getElementsByClassName("super-imagen");
+
+     for (var i = 0; i < (superImagenes.length) ; i++) {
+         superImagenes[i].onclick = function () {
+             if (superMercado != this.id.replace("_", " ")) {
+                 //this.className = "super-imagen-activa col-md-3";
+                 $(this).addClass("super-imagen-activa");
+                 superMercado = this.id.replace("_", " ");
+
+                 for (var i = 0; i < superImagenes.length; i++) {
+                     if (superMercado != superImagenes[i].id.replace("_", " ")) {
+                         $("#"+superImagenes[i].id).removeClass("super-imagen-activa");
+                     }
+                 }
+             } 
+             
+         }
+     }
+
+     $('#continuar').click(function () {
+         if (superMercado == "") {
+             $('#mensaje').html("Seleccione un super Mercado");
+         } else {
+             if (superMercado == "Jumbo") {
+                 window.location = "@Url.Action("producto", "Jumbo")";
+             } else {
+                 window.location = "@Url.Action("producto", "LaSirena")";
+             }
+         }
+     });
+ </script>

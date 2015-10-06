@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{181F8B6B-503C-4234-B7FC-24DE0F0D8CF2}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SuperOnline_ASP_NET_MVC</RootNamespace>
+    <AssemblyName>SuperOnline_ASP_NET_MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CarritoController.cs" />
+    <Compile Include="Controllers\comentarioController.cs" />
+    <Compile Include="Controllers\DetallePedidoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JumboController.cs" />
+    <Compile Include="Controllers\LaSirenaController.cs" />
+    <Compile Include="Controllers\listaController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
+    <Compile Include="Controllers\SuperController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ArticuloCarrito.cs" />
+    <Compile Include="Models\Carrito.cs" />
+    <Compile Include="Models\Categoria.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comentario.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contenido_Listas.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Detalle_pedido.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gondola.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InicioSesion.cs" />
+    <Compile Include="Models\Lista.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pedido.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Producto.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Super_mercados.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tipos.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\themes\base\bootstrap.min.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\mi-lista.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\mis-css\producto.css" />
+    <Content Include="Content\themes\base\mis-css\styles.css" />
+    <Content Include="Content\themes\base\responsivemobilemenu.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\carrinho.png" />
+    <Content Include="Images\com.jpg" />
+    <Content Include="Images\comprarrr.png" />
+    <Content Include="Images\i.png" />
+    <Content Include="Images\ic_compras.png" />
+    <Content Include="Images\images.jpg" />
+    <Content Include="Images\io.png" />
+    <Content Include="Images\izquierda.jpg" />
+    <Content Include="Images\jumbo2.png" />
+    <Content Include="Images\la sirena.png" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Aceite Crisol Soya 16 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Aceite Crisol Soya 64 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Aceite De Oliva Figaro Extra Virgen 1 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Aceite Mazola Canola 128 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Aceite Mazola Canola 96 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Aceite Mazola De Maiz 96 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Aceite Oliva Figaro Lata 375.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Aceite Wesson Canola 128 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Aceite Wesson Maiz 1 Gl.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Acondicionador Dove Intensive Repair 12 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Acondicionador Head And Shoulder Aceite De Almendra 400 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Acondicionador Head And Shoulder Limpieza Renovadora 400ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Acondicionador Herbal Essences Color Treated 10 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Afeitadora Good News Soft Ultra Grip.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Agua Crystal 1.5 Litros.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Agua Dasani Manzana 20 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Agua Mineral Naturelle Los Alpes 1 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Agua San Pellegrino 750ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Agua Tonica Enriquillo 20 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Arroz El Molino 20 Lbs.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Arroz El Molino 3 Lbs.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Arroz El Molino 30 Lbs.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Arroz La Garza 12 Lbs.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Arroz La Garza 3 Lbs.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Arroz La Garza 5 Lbs.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Arroz La Garza 50 Lbs.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Avena Quaker Instantanea Corazon Sano 675g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Avena Quaker Instantanea Frutas Y Crema.png" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Avena Quaker Instantanea Manzana Y Canela.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Avena Quaker Molida Corazon Sano 525g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Azucar Blanca Don Rodrigo X 5 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Azucar Crema Don Rodrigo X 5 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Bistec De Palomilla X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Bistec De Res Pasado Por Maquina X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Boliche De Res X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Carne De Cerdo Para Guisar X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Catchup Heinz 14 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Catchup Heinz 20 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Catchup Heinz 38 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Catchup Heinz Azucar Reducida 13 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Catchup Hunts 24 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cepillo Dental Colgate 360 Suave.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cepillo Dental Oral-B Pulsar 35 Mediano.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cepillo Oral-B Indicator 35 Mediano.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cepillo Oral-B Phohealth Clinical.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cereal Corn Flakes Kelloggs 510g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cereal Kelloggs Special K Chocolatey Strawberry 11 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cereal Kelloggs Special K Vanilla Almond 12.5 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cereal Nesquik 530g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cereal Zucaritas Kelloggs 9.2 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cerveza Bohemia Light 22 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cerveza Miller 64 12 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cerveza Presidente 22 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cerveza Presidente Light 12 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Cerveza Presidente Light 22 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Costilla De Cerdo Ahumada X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Crema Corporal Dove Reafirmante %28Firming%29 400 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Crema Liquida Johnsons Bedtime 400 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Crema Ponds Clarant B3 100g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Crema Ponds Rejuveness De Dia 50g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Crema Vasenol Humectacion Total 400ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Desodorante Axe Seco Anarchy 50g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Desodorante Lady Speed Stick Con Aloe 50 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Desodorante Lady Speed Stick Perfect Tone 45g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Desodorante Men Speed Stick Adn.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Endulzante Sin Calorias Nevella 200 Sobres.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Endulzante Splenda 100.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Endulzante Splenda 50.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Filete De Pechuga Pollo Fresca X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Filete De Pechuga Pollo Fresca Yaque Por Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas De Soda Aviva Saltinas.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas De Soda Hatuey Regular.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas De Soda Hatuey Saltinas.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas Dulces Emperador Chocolate.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas Dulces Guarina Wafer Limon.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas Dulces Mini Oreo 1 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas Dulces Oreo 57g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas Mini Chokis 39g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas Saladas Club Keebler 13.7 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas Saladas Gamesa Minicrackets 43g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Galletas Saladas Ritz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Gillette Crema De Afeitar Foamy Regular 6.25 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Guandules Goya 14 Oz %28Funda%29.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Guineo Maduro Por Libra.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Habichuelas Jacomelo Don Rodrigo 800g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Habichuelas Jacomelo Giselle 800 Gr %28Aprox. 2 Lb%29.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Habichuelas Negras Giselle 800 Gr%28Aprox. 2 Lb%29.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Habichuelas Rojas Don Rodrigo 800g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Habichuelas Rojas Giselle 2 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Harina De Maiz Mazorca 14 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Harina De Negrito La Morenita Clasica 14 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Harina De Trigo Blanquita 5 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Huevos De Codorniz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Huevos Don Papito 12.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Huevos Don Papito Extra Grande.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Huevos Don Papito Medianos.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jabon Johnsons Baby Bed Time 125g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jabon Kinder Aceite De Almendras 90g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jabon Liquido Protex Balance 250 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jabon Palmolive Tono Perfecto 110g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jabon Protex Vitamina E 110g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jugo Del Monte Melocoton 200 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jugo Rica Fruit Punch 1 Lt Uht.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jugo Rica Piña Guayaba 1 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jugo Santal Kids Cyber Pera 200 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jugo Tang Fresa 30g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jugo Tang Fruit Punch 30g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jugo Tang Limon 210g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Jugo Tang Naranja 30g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Leche En Polvo Entera Milex 2200g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Leche En Polvo Nido Crecimiento 2200g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Leche En Polvo Nido Fortificada 1600g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Leche En Polvo Nutra 1800g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Leche La Vaquita 1 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Leche Rica La Vaquita 0.5 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Leche Rica Listamilk 0.5 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Leche Rica Listamilk 250 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Lomo De Cerdo Fresco X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Maizena Duryea Fecula De Maiz 320 G.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Mantequilla Rica La Vaquita 0.5 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Manzana Fuji Por Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Manzana Roja Por Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Manzana Verde Por Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Margarina Con Mantequilla Dorina 1 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Margarina Con Mantequilla Dorina 3 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Margarina De Maiz Mazorca 1 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Margarina De Maiz Mazorca 3 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Mayonesa Baldom 16 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Mayonesa Baldom 32 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Mayonesa Baldom 8 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Mayonesa Baldom Light 16 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Mayonesa Baldom Light 8 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Mayonesa Baldom Real 1 Gl.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Mostaza Baldom 12 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Mostaza Heinz Yellow 9 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Naranjas 3 Por Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Paleta De Res Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Panales Desechables Huggies Natural Care #4.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Panales Desechables Huggies Natural Care #5.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Panales Desechables Huggies Pull Ups.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Panales Desechables Huggies Slip On #4 23 U.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Pasta Dental Colgate Barbie 75 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Pasta Dental Colgate Bob Esponja 75 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Pasta Dental Colgate Max Fresh 75 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Pasta Dental Colgate Professional Whitening 75 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Pañales Desechables Pampers Size 4 Baby Dry.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Pechuga De Pollo Con Hueso Fresca Yaque X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Pierna De Cerdo Fresca Con Hueso X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Pina X Unidad.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Pollo Fresco Por Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Rasuradora Gillette Cabeza Fija.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Rasuradora Presto Barba 3.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Refresco 7up 2 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Refresco Country Club Merengue 2 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Refresco Fanta Naranja 2 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Refresco Fanta Uva 2 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Refresco Red Rock Uva 2 Lt.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Sal Carey 26 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Sal De Ajo Goya 5 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Sal Don Rodrigo 10 Lb %28Pote%29.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Sandia Unidad.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Shampoo Folicure Original 12oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Shampoo Head And Shoulder Aceite De Almendra 400 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Shampoo Head And Shoulder Menthol Para Hombre 400 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Talco Johnsons Baby Original 200 Grs.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Tamarindo Paquete 1 Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Tampax Regular Pearl.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Toallas Sanitarias Kotex Manzanilla.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Toallas Sanitarias Kotex Teens Alas.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Toallitas Desmaquillantes Skin &amp; Care.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Toallitas Humedas Huggies One &amp; Done Fragance Free.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Trigo Don Rodrigo 400g.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Uvas Red Globe Con Semillas X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Uvas Verdes X Lb.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vinagre Baldom Ranchero 16 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vinagre Baldom Ranchero Ambar 1 Gl.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vinagre Baldom Ranchero Blanco 16 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vinagre Blanco Constanza 17.5 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vinagre Constanza Natural Ambar 17.5 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vinagre Heinz Blanco 16 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vinagre Heinz Blanco 32 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vinagre Victorina 100%25 Vino De Frutas 8 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vino Cabernet Sauvignon Beringer 750 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vino Corbieres Tinto 75cl Crf.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vino Tinto La Fuerza 700 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Vino Tinto Viña Maipo Cabernet Sauvignon 750 Ml.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Yogurt Activia Fresa.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Yogurt Activia Vainilla.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Yogurt Yocrunch Chips Ahoy.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Yogurt Yoka 0%25 Fresa Bebible 8 Oz.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Yogurt Yoka Fresa Bebible 0.5 Gl.PNG" />
+    <Content Include="Images\mis-imagenes\Imagenes-productos\Yogurt Yoka Vainilla Bebible 0.5 Gl.PNG" />
+    <Content Include="Images\mis-imagenes\lacteos.jpg" />
+    <Content Include="Images\mis-imagenes\nota\nota1.png" />
+    <Content Include="Images\mis-imagenes\nota\nota2.png" />
+    <Content Include="Images\mis-imagenes\nota\nota3.jpg" />
+    <Content Include="Images\mis-imagenes\nota\nota4.jpg" />
+    <Content Include="Images\mis-imagenes\nota\nota5.png" />
+    <Content Include="Images\mis-imagenes\super-mercados\jumbo.png" />
+    <Content Include="Images\mis-imagenes\super-mercados\la sirena.png" />
+    <Content Include="Images\nota1.png" />
+    <Content Include="Images\nota5.png" />
+    <Content Include="Images\puedes-mas-productos.PNG" />
+    <Content Include="Images\puedes.PNG" />
+    <Content Include="Images\textocomprar.png" />
+    <Content Include="Models\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mis-js\jumbo.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\mis-js\laSirena.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\my-lista.js" />
+    <Content Include="Scripts\responsivemobilemenu.js" />
+    <Content Include="Scripts\session.js" />
+    <Content Include="Scripts\vertical-nav.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Registrarse.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\lista\Index.cshtml" />
+    <Content Include="Views\lista\Details.cshtml" />
+    <Content Include="Views\lista\Create.cshtml" />
+    <Content Include="Views\lista\Edit.cshtml" />
+    <Content Include="Views\lista\Delete.cshtml" />
+    <Content Include="Views\comentario\Index.cshtml" />
+    <Content Include="Views\comentario\Details.cshtml" />
+    <Content Include="Views\comentario\Create.cshtml" />
+    <Content Include="Views\comentario\Edit.cshtml" />
+    <Content Include="Views\comentario\Delete.cshtml" />
+    <Content Include="Views\ContenidoListas\Index.cshtml" />
+    <Content Include="Views\ContenidoListas\Details.cshtml" />
+    <Content Include="Views\ContenidoListas\Create.cshtml" />
+    <Content Include="Views\ContenidoListas\Edit.cshtml" />
+    <Content Include="Views\ContenidoListas\Delete.cshtml" />
+    <Content Include="Views\DetallePedido\Index.cshtml" />
+    <Content Include="Views\DetallePedido\Details.cshtml" />
+    <Content Include="Views\DetallePedido\Create.cshtml" />
+    <Content Include="Views\DetallePedido\Edit.cshtml" />
+    <Content Include="Views\DetallePedido\Delete.cshtml" />
+    <Content Include="Views\Pedido\Index.cshtml" />
+    <Content Include="Views\Pedido\Details.cshtml" />
+    <Content Include="Views\Pedido\Create.cshtml" />
+    <Content Include="Views\Pedido\Edit.cshtml" />
+    <Content Include="Views\Pedido\Delete.cshtml" />
+    <Content Include="Views\producto\Index.cshtml" />
+    <Content Include="Views\producto\Details.cshtml" />
+    <Content Include="Views\producto\Create.cshtml" />
+    <Content Include="Views\producto\Edit.cshtml" />
+    <Content Include="Views\producto\Delete.cshtml" />
+    <Content Include="Views\Super\Index.cshtml" />
+    <Content Include="Views\Super\Details.cshtml" />
+    <Content Include="Views\Super\Create.cshtml" />
+    <Content Include="Views\Super\Edit.cshtml" />
+    <Content Include="Views\Super\Delete.cshtml" />
+    <Content Include="Views\Super\Jumbo.cshtml" />
+    <Content Include="Views\Super\JumboInicio.cshtml" />
+    <Content Include="Views\Jumbo\Producto.cshtml" />
+    <Content Include="Views\Shared\superLayout.cshtml" />
+    <Content Include="Views\Usuario\IniciarSesion.cshtml" />
+    <Content Include="Views\lista\miLista.cshtml" />
+    <Content Include="Views\LaSirena\Producto.cshtml" />
+    <Content Include="Views\Carrito\RevisarCarrito.cshtml" />
+    <Content Include="Views\Jumbo\Buscar.cshtml" />
+    <Content Include="Views\LaSirena\Buscar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:45912/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

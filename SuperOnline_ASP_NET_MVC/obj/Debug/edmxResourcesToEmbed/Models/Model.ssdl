@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SuperOnlineModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SuperOnlineModelStoreContainer">
+    <EntitySet Name="Categorias" EntityType="SuperOnlineModel.Store.Categorias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comentarios" EntityType="SuperOnlineModel.Store.Comentarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contenido_Listas" EntityType="SuperOnlineModel.Store.Contenido_Listas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Detalle_pedido" EntityType="SuperOnlineModel.Store.Detalle_pedido" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Gondolas" EntityType="SuperOnlineModel.Store.Gondolas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Listas" EntityType="SuperOnlineModel.Store.Listas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pedidos" EntityType="SuperOnlineModel.Store.Pedidos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Productos" EntityType="SuperOnlineModel.Store.Productos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Super_mercados" EntityType="SuperOnlineModel.Store.Super_mercados" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tipos" EntityType="SuperOnlineModel.Store.Tipos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios" EntityType="SuperOnlineModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="fk_comentarios_productoid" Association="SuperOnlineModel.Store.fk_comentarios_productoid">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Comentarios" EntitySet="Comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_comentarios_usuarioid" Association="SuperOnlineModel.Store.fk_comentarios_usuarioid">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Comentarios" EntitySet="Comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cont_listas_id" Association="SuperOnlineModel.Store.fk_cont_listas_id">
+      <End Role="Listas" EntitySet="Listas" />
+      <End Role="Contenido_Listas" EntitySet="Contenido_Listas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cont_listas_tipo" Association="SuperOnlineModel.Store.fk_cont_listas_tipo">
+      <End Role="Tipos" EntitySet="Tipos" />
+      <End Role="Contenido_Listas" EntitySet="Contenido_Listas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_det_pedidos_productoid" Association="SuperOnlineModel.Store.fk_det_pedidos_productoid">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Detalle_pedido" EntitySet="Detalle_pedido" />
+    </AssociationSet>
+    <AssociationSet Name="fk_det_pedidosid" Association="SuperOnlineModel.Store.fk_det_pedidosid">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="Detalle_pedido" EntitySet="Detalle_pedido" />
+    </AssociationSet>
+    <AssociationSet Name="fk_gondolaNombre" Association="SuperOnlineModel.Store.fk_gondolaNombre">
+      <End Role="Gondolas" EntitySet="Gondolas" />
+      <End Role="Categorias" EntitySet="Categorias" />
+    </AssociationSet>
+    <AssociationSet Name="fk_lista_usuarioid" Association="SuperOnlineModel.Store.fk_lista_usuarioid">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Listas" EntitySet="Listas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pedidos_super_mercado" Association="SuperOnlineModel.Store.fk_pedidos_super_mercado">
+      <End Role="Super_mercados" EntitySet="Super_mercados" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pedidos_usuarioid" Association="SuperOnlineModel.Store.fk_pedidos_usuarioid">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_productos_super_mercado" Association="SuperOnlineModel.Store.fk_productos_super_mercado">
+      <End Role="Super_mercados" EntitySet="Super_mercados" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipoNombre" Association="SuperOnlineModel.Store.fk_tipoNombre">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Tipos" EntitySet="Tipos" />
+    </AssociationSet>
+    <AssociationSet Name="fktipoNombre" Association="SuperOnlineModel.Store.fktipoNombre">
+      <End Role="Tipos" EntitySet="Tipos" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="gondola" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Comentarios">
+    <Key>
+      <PropertyRef Name="comentario_id" />
+    </Key>
+    <Property Name="comentario_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="comentario" Type="varchar" MaxLength="300" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="usuario_id" Type="int" Nullable="false" />
+    <Property Name="producto_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contenido_Listas">
+    <Key>
+      <PropertyRef Name="contenido_listas_id" />
+    </Key>
+    <Property Name="contenido_listas_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="lista_id" Type="int" Nullable="false" />
+    <Property Name="tipo" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Detalle_pedido">
+    <Key>
+      <PropertyRef Name="detalle_pedido_id" />
+    </Key>
+    <Property Name="detalle_pedido_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="producto_id" Type="int" Nullable="false" />
+    <Property Name="cantidad_producto" Type="int" Nullable="false" />
+    <Property Name="precio" Type="numeric" Nullable="false" Precision="8" Scale="2" />
+    <Property Name="sub_total" Type="numeric" Nullable="false" Precision="8" Scale="2" />
+    <Property Name="pedido_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gondolas">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Listas">
+    <Key>
+      <PropertyRef Name="lista_id" />
+    </Key>
+    <Property Name="lista_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="usuario_id" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedidos">
+    <Key>
+      <PropertyRef Name="pedido_id" />
+    </Key>
+    <Property Name="pedido_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="estado" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="total_precio" Type="numeric" Nullable="false" Precision="9" Scale="2" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="usuario_id" Type="int" Nullable="false" />
+    <Property Name="super_mercado" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="producto_id" />
+    </Key>
+    <Property Name="producto_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="marca" Type="varchar" MaxLength="20" />
+    <Property Name="contenido" Type="varchar" MaxLength="15" />
+    <Property Name="precio" Type="numeric" Nullable="false" Precision="8" Scale="2" />
+    <Property Name="tipo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Super_mercado" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Super_mercados">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Tipos">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="categoria" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="usuario_id" />
+    </Key>
+    <Property Name="usuario_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cedula" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="correo" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="clave" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <Association Name="fk_comentarios_productoid">
+    <End Role="Productos" Type="SuperOnlineModel.Store.Productos" Multiplicity="1" />
+    <End Role="Comentarios" Type="SuperOnlineModel.Store.Comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="producto_id" />
+      </Principal>
+      <Dependent Role="Comentarios">
+        <PropertyRef Name="producto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_comentarios_usuarioid">
+    <End Role="Usuarios" Type="SuperOnlineModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="Comentarios" Type="SuperOnlineModel.Store.Comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="Comentarios">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cont_listas_id">
+    <End Role="Listas" Type="SuperOnlineModel.Store.Listas" Multiplicity="1" />
+    <End Role="Contenido_Listas" Type="SuperOnlineModel.Store.Contenido_Listas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Listas">
+        <PropertyRef Name="lista_id" />
+      </Principal>
+      <Dependent Role="Contenido_Listas">
+        <PropertyRef Name="lista_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cont_listas_tipo">
+    <End Role="Tipos" Type="SuperOnlineModel.Store.Tipos" Multiplicity="1" />
+    <End Role="Contenido_Listas" Type="SuperOnlineModel.Store.Contenido_Listas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipos">
+        <PropertyRef Name="nombre" />
+      </Principal>
+      <Dependent Role="Contenido_Listas">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_det_pedidos_productoid">
+    <End Role="Productos" Type="SuperOnlineModel.Store.Productos" Multiplicity="1" />
+    <End Role="Detalle_pedido" Type="SuperOnlineModel.Store.Detalle_pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="producto_id" />
+      </Principal>
+      <Dependent Role="Detalle_pedido">
+        <PropertyRef Name="producto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_det_pedidosid">
+    <End Role="Pedidos" Type="SuperOnlineModel.Store.Pedidos" Multiplicity="1" />
+    <End Role="Detalle_pedido" Type="SuperOnlineModel.Store.Detalle_pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedidos">
+        <PropertyRef Name="pedido_id" />
+      </Principal>
+      <Dependent Role="Detalle_pedido">
+        <PropertyRef Name="pedido_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_gondolaNombre">
+    <End Role="Gondolas" Type="SuperOnlineModel.Store.Gondolas" Multiplicity="0..1" />
+    <End Role="Categorias" Type="SuperOnlineModel.Store.Categorias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gondolas">
+        <PropertyRef Name="nombre" />
+      </Principal>
+      <Dependent Role="Categorias">
+        <PropertyRef Name="gondola" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_lista_usuarioid">
+    <End Role="Usuarios" Type="SuperOnlineModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="Listas" Type="SuperOnlineModel.Store.Listas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="Listas">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pedidos_super_mercado">
+    <End Role="Super_mercados" Type="SuperOnlineModel.Store.Super_mercados" Multiplicity="1" />
+    <End Role="Pedidos" Type="SuperOnlineModel.Store.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Super_mercados">
+        <PropertyRef Name="nombre" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="super_mercado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pedidos_usuarioid">
+    <End Role="Usuarios" Type="SuperOnlineModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="Pedidos" Type="SuperOnlineModel.Store.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_productos_super_mercado">
+    <End Role="Super_mercados" Type="SuperOnlineModel.Store.Super_mercados" Multiplicity="1" />
+    <End Role="Productos" Type="SuperOnlineModel.Store.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Super_mercados">
+        <PropertyRef Name="nombre" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="Super_mercado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipoNombre">
+    <End Role="Categorias" Type="SuperOnlineModel.Store.Categorias" Multiplicity="0..1" />
+    <End Role="Tipos" Type="SuperOnlineModel.Store.Tipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="nombre" />
+      </Principal>
+      <Dependent Role="Tipos">
+        <PropertyRef Name="categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fktipoNombre">
+    <End Role="Tipos" Type="SuperOnlineModel.Store.Tipos" Multiplicity="1" />
+    <End Role="Productos" Type="SuperOnlineModel.Store.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipos">
+        <PropertyRef Name="nombre" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

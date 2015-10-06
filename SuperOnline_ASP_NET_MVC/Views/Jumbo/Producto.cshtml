@@ -1,0 +1,116 @@
+﻿@model IEnumerable<SuperOnline_ASP_NET_MVC.Models.Producto>
+@{
+    ViewBag.Title = "Jumbo";
+    Layout = "~/Views/Shared/superLayout.cshtml";
+}
+
+
+<link href="~/Content/themes/base/mis-css/producto.css" rel="stylesheet" />
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+
+<div id="mostrar-tipo">
+   @HttpContext.Current.Request["tipo"]
+</div>
+<div id="contenedor" class="col-lg-7">
+
+    <div id="articulos" class="col-lg-12">
+        @if( @HttpContext.Current.Request["tipo"] == null){
+            <div class="col-lg-12" id="puedes">
+                <img src="~/Images/puedes.PNG" />
+            </div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <div class="col-lg-12" id="puedes-mas-productos">
+                <img src="~/Images/puedes-mas-productos.PNG" />
+            </div>
+                                                         }
+        @foreach (var item in Model)
+        {
+        <div class="contenedor-articulo col-lg-4">
+            <article id="articulo-@(item.nombre.Replace(" ", "_"))" class="col-lg-12">
+                <img src="~/Images/mis-imagenes/Imagenes-productos/@(item.nombre).PNG" />
+                <div class="articulo-nombre">@Html.DisplayFor(modelItem => item.nombre)</div>
+                <div class="articulo-precio">RD$@Html.DisplayFor(modelItem => item.precio)</div>
+
+            </article>
+        </div>
+        }
+    </div>
+
+    
+
+</div>
+
+<div id="lateral-derecho" class="col-lg-5">
+   
+    @if(ViewBag.listaContiene == true){
+    <div id="lista" class="col-lg-12">
+        <div id="titulo-lista" class="portlet-header col-lg-12">Lista de compras</div>
+        <div id="lista-compras-contenido" class="col-lg-12"></div>
+        <div id="lista-opcion" class="col-lg-12">
+            <a href="~/lista"><button id="modificar-lista" class="btn btn-default col-lg-5">Modificar Lista</button></a>
+        </div>
+    </div>
+    }else{
+        <div id="crea-tu-lista" class="col-lg-12">
+            <p>Aún no tienes tu lista, create una y aprovecha sus beneficios</p>
+            <a href="~/lista"><button id="crear-lista" class="btn btn-default col-lg-12">Crea tu Lista</button></a>
+        </div>
+    }
+    <div id="carrito" class="col-lg-12">
+        <div id="titulo-carrito" class="portlet-header"></div>
+        <div id="carrito-contenido" class="col-lg-12"></div>
+        <div id="mendaje-carrito-vacio">Carrito vacío</div>
+        <div id="carrito-opcion" class="col-lg-12">
+            <a href="~/pedido/create?superMercado=Jumbo"><input id='hacer-pedido' type='button' class='btn btn-default col-lg-4' value='Hacer Pedido'/></a>
+            <a href="~/Carrito/RevisarCarrito?superMercado=Jumbo"><input id='revisar-carrito' type='button' class='btn btn-default col-lg-4' value='Revisar Pedido' /></a>
+        </div>
+    </div>
+
+    <div id="dialogo-guardar-lista" title="Guardar lista" class="col-lg-12">
+        <div class="col-lg-12">
+            Para poder guardar esta lista debes tener una cuenta.<br />
+        </div>
+        <div id="opciones-dialogo-guardar-lista" class="col-lg-12">
+            <a id="link-iniciar" href="~/usuario/iniciarSesion">Iniciar Sesion</a> 
+            <a id="link-registrarse" href="~/usuario/registrarse">Registrarse</a>
+        </div>
+    </div>
+</div>
+
+<div id="super-detalles" class="col-lg-4">
+    <div class=" col-lg-12"><p id="cerrar" class="close col-lg-1">X</p></div>
+    <div id="otros-superMercados" class="col-lg-12">
+        <h4>Puedes visitar otros Super Mercados</h4>
+        @foreach(var item in ViewBag.superMercados)
+        {   
+            var nombre = @item.nombre.Replace(" ", "");
+            <ul>
+                <li>
+                <a href="~/@nombre/producto"><h5>@nombre</h5></a>
+                </li>
+            </ul>
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.11.2.min.js"></script>
+<script src="~/Scripts/mis-js/jumbo.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+       
+        var listaCompras = @Html.Raw(Json.Encode(@ViewBag.lista));
+        if(listaCompras != null){
+            $('#titulo-lista').html("Lista: "+listaCompras[0]);
+
+            for(var i = 1; i < listaCompras.length; i++) {
+                document.getElementById('lista-compras-contenido').appendChild(listaItem(listaCompras[i]));
+            }
+        }
+    });
+    var buscarUrl = '@Url.Action("buscar", "Jumbo")';
+
+</script>
+    

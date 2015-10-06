@@ -1,0 +1,50 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.Comentario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Comentario</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.comentario_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.comentario_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.comentario1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.comentario1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fecha)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Usuario.cedula)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Usuario.cedula)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Producto.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Producto.nombre)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

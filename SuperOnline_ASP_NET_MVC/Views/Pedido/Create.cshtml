@@ -1,0 +1,39 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.Pedido
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/themes/base/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/themes/base/mis-css/producto.css" rel="stylesheet" />
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+<div class="col-lg-7">
+    <div class="nombreSuperMercado col-lg-12">@ViewBag.superMercado1</div>
+    <table class="table table-bordered">
+        <tr>
+            <th>Artículo</th><th>Cantidad</th><th>Precio</th><th>Sub Total</th>
+        </tr>
+        @{
+            foreach(var item in Model) { 
+                <tr>
+                    <td>@item.nombre</td>
+                    <td>@item.cant</td>
+                    <td>RD$@item.precio</td>
+                    <td>RD$@item.total</td>
+                </tr>
+            
+            }
+            
+        }
+        <tr class=" totalGeneral"><td colspan="4">Total: RD$@ViewBag.totalSuper1</td></tr>
+    </table>
+    
+</div>
+
+
+
+
+
+

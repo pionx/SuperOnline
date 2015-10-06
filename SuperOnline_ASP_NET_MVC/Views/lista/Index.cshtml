@@ -1,0 +1,160 @@
+﻿@model IEnumerable<SuperOnline_ASP_NET_MVC.Models.Lista>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/Scripts/jquery-1.11.2.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link href="~/Content/themes/base/mi-lista.css" rel="stylesheet" />
+
+    <style>
+        
+    </style>
+    <div id="tabs" class="col-lg-6">
+        <ul>
+            @foreach(var gondola in ViewBag.gondolas){
+                if(!gondola.nombre.Equals("Cuidado personal")){
+                <li  id="@gondola.nombre"><a href="#sub-menu-@gondola.nombre">@gondola.nombre</a></li>
+                }
+            }
+             @foreach(var gondola in ViewBag.gondolas){
+                if(gondola.nombre.Equals("Cuidado personal")){
+                <li  id="cuidado-personal"> <a href="#sub-menu-cuidado-personal">@gondola.nombre</a></li>
+                }
+            }
+            
+        </ul>
+        @foreach (var gondola in ViewBag.gondolas)
+        {
+            if (!gondola.nombre.Equals("Cuidado personal"))
+            {
+                <div id="sub-menu-@gondola.nombre" class="col-md-12 sub-menu">
+                    @foreach (var categoria in ViewBag.categorias)
+                    {
+                        if (categoria.gondola.Equals(gondola.nombre))
+                        {
+                            <div class="categoria col-md-6">
+                                <h4>@categoria.nombre</h4>
+                                @foreach (var tipo in ViewBag.tipos)
+                                {
+                                    if (tipo.categoria.Equals(categoria.nombre))
+                                    {
+                                       
+                                                       
+                                        <ul>
+                                            <li id="tipo-@(tipo.nombre.Replace(" ", "_"))" class="sub-menu-tipo list-style col-lg-12">@tipo.nombre</li>
+                                        </ul>
+                                    
+                                        @*<ul>
+                                            <li ><p id="tipo-@(tipo.nombre.Replace(" ", "_"))" class="sub-menu-tipo">@tipo.nombre</p></li>
+                                        </ul>*@
+                                    }
+                                }
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        }
+            @foreach (var gondola in ViewBag.gondolas)
+            {
+                if (gondola.nombre.Equals("Cuidado personal"))
+                {
+                    <div id="sub-menu-cuidado-personal" class="col-md-12 sub-menu" >
+                        @foreach (var categoria in ViewBag.categorias)
+                        {
+                            if (categoria.gondola.Equals(gondola.nombre))
+                            {
+                                <div class="categoria col-md-6">
+                                    <h4>@categoria.nombre</h4>
+                                    @foreach (var tipo in ViewBag.tipos)
+                                    {
+                                        if (tipo.categoria.Equals(categoria.nombre))
+                                        {
+                                            <ul>
+                                                <li id="tipo-@(tipo.nombre.Replace(" ", "_"))" class="sub-menu-tipo list-style">@tipo.nombre</li>
+                                            </ul>
+                                        }
+                                    }
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+            }
+        
+    </div>
+ 
+        <div class="col-lg-1" style="padding: 0;"></div>
+        <div id="panel-lista"  class="panel panel-primary col-lg-5">
+            
+            <div class="panel-heading">
+
+                <h3 id="panel-title" class="panel-title">Mi lista</h3>
+                @*<input class="form-control" id="panel-utilizar-nombre" type="text" placeholder="nombre lista" />*@
+                <button id="guardar-lista" class="btn btn-info" type="button">Guardar lista</button>
+            @*    <button id="guardar-lista" class="btn btn-info" type="button">Guardar lista</button>*@
+
+            </div>
+            <div id="cuerpo-lista" class="panel-body">
+                <ul id="sortable">
+                    
+                </ul>
+            </div>
+            <div id="pie-lista" class="" >
+                 <div id="mensaje-lista" class="">
+                
+                </div>
+               @* <div id="opciones-lista" class="">
+                    <input class="form-control" id="panel-utilizar-nombre" type="text" placeholder="nombre lista" />
+                    <button id="utilizar-lista" class="btn btn-info" type="button">Utilizar lista</button>
+                    <button id="guardar-lista" class="btn btn-info" type="button">Guardar lista</button>
+                </div>*@
+            </div>
+           
+        </div> 
+    
+
+    <div id="estacion">
+        <button id="boton-estacion" class="btn btn-primary" type="button">Desplegar lista</button>
+    </div>
+
+    <div id="dialogo-guardar-lista" class="col-lg-5" title="Utilzar lista">
+        <div class="col-md-12">Puedes utilizar tu lista para encontrar más rápido tus productos.<br /></div>
+        
+        
+                
+        
+        <div id="dialogo-utilizar-nombre-lista">
+            <input class="form-control" id="dialogo-utilizar-nombre" type="text" placeholder="nombre lista" />
+            <input class="btn btn-default" id="dialogo-utilizar-continuar" type="submit" value="Continuar" />
+        </div>
+        <div id="mensaje-selecciona-super"></div>
+        <div id="mensaje-escribe-nombre"></div>
+    
+    </div>
+    
+    
+<script src="~/Scripts/my-lista.js"></script>
+<script>
+    var listaContiene = @Html.Raw(Json.Encode(@ViewBag.listaContiene));
+
+    if(listaContiene){
+                    
+        var lista = @Html.Raw(Json.Encode(@ViewBag.lista));
+
+        for(var i=1; i<lista.length; i++){
+                            
+            agregarFila(lista[i]);
+            var tipo = document.getElementById("tipo-" + lista[i]);
+            seleccionarTipo(tipo);
+            console.log("fila "+i+" agregada");
+                        
+                   
+        }
+    }
+</script>

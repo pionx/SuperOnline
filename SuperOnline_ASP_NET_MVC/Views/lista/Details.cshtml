@@ -1,0 +1,43 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.Lista
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Lista</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.lista_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lista_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Usuario.cedula)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Usuario.cedula)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fecha)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

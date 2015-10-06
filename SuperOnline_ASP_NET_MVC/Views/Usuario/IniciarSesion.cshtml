@@ -1,0 +1,43 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.InicioSesion
+@{
+    ViewBag.Title = "Iniciar Sesion";
+}
+
+<h2>IniciarSesion</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Introduce tus datos</legend>
+
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.correo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.correo)
+            @Html.ValidationMessageFor(model => model.correo)
+            @ViewBag.mensajeCorreo
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.clave)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.clave)
+            @Html.ValidationMessageFor(model => model.clave)
+            @ViewBag.mensajeClave
+        </div>
+        <p>@ViewBag.errorCredenciales</p>
+        <p>
+            
+            <input type="submit" value="Iniciar Sesión" />
+        </p>
+    </fieldset>
+}
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>

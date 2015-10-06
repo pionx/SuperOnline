@@ -1,0 +1,57 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.Detalle_pedido
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Detalle_pedido</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.detalle_pedido_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.detalle_pedido_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Producto.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Producto.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cantidad_producto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cantidad_producto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.precio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.precio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.sub_total)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.sub_total)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Pedido.estado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pedido.estado)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

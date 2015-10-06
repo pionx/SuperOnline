@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <style>
+        #lista-pasos {
+            background-color: #009688;
+            padding: 10px;
+            color: white;
+            border-radius: 2px;
+            cursor: pointer;
+            left: 90px;
+            margin-top: 30px;
+        }
+        #pasos {
+            background-color: #009688;
+            font-size: 20px;
+            margin-top: 80px;
+            
+        }
+        .super-imagen{
+            height: 220px;
+            width: 270px;
+            border: 1px solid #1b9bff;
+            padding: 5px;
+            margin: 10px;
+        }
+        #super-mercados {
+            font-size: 20px;
+            padding: 5px;
+            
+        }
+        #sub-menu-almacen {
+            border: solid;
+            padding: 3px;
+        }
+        #sub-menu-bebidas {
+            border: solid;
+            padding: 3px;
+        }
+        .sub-menu-tipo {
+            cursor: pointer;
+             
+        }
+        #categoria {
+            border: solid;
+        }
+        #lista {
+            border: solid;
+            margin: 5px;
+            padding: 5px;
+        }
+        .comprar {
+            padding: 0;
+            text-align: center;
+            /*top: 70px;*/
+        }
+        .comprar:hover {
+            color: #1b9bff;
+            cursor: pointer;
+        }
+        #miBanner {
+            top: 1px;
+            /*border: 2px solid #1b9bff  ;*/
+            cursor: pointer;
+        }
+        #imagenComprar:hover {
+            padding: 0;
+            border: 2px solid;
+        }
+        #wowslider-container1 {
+            margin: 0px;
+        }
+    </style>
+
+   <!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
+<!-- End WOWSlider.com HEAD section -->
+       
+    <div class="col-lg-12">
+       <!-- Start WOWSlider.com BODY section -->
+        <div id="wowslider-container1">
+        <div class="ws_images"><ul>
+		        <li><img src="data1/images/banner.jpg" alt="Super Online" title="Super Online" id="wows1_0"/></li>
+		        <li><img src="data1/images/banneratthemarket.jpg" alt="Super Online" title="Super Online" id="wows1_1"/></li>
+		        <li><img src="data1/images/bannerprogramsfarmersmarket.jpg" alt="Super Online" title="Super Online" id="wows1_2"/></li>
+		        <li><a href="http://wowslider.com"><img src="data1/images/farmers_market_banner_0.jpg" alt="responsive slider jquery" title="Super Online" id="wows1_3"/></a></li>
+		        <li><img src="data1/images/farmers_market_banner_1.jpg" alt="Super Online" title="Super Online" id="wows1_4"/></li>
+	        </ul></div>
+	        <div class="ws_bullets"><div>
+		        <a href="#" title="Super Online"><span><img src="data1/tooltips/banner.jpg" alt="Super Online"/>1</span></a>
+		        <a href="#" title="Super Online"><span><img src="data1/tooltips/banneratthemarket.jpg" alt="Super Online"/>2</span></a>
+		        <a href="#" title="Super Online"><span><img src="data1/tooltips/bannerprogramsfarmersmarket.jpg" alt="Super Online"/>3</span></a>
+		        <a href="#" title="Super Online"><span><img src="data1/tooltips/farmers_market_banner_0.jpg" alt="Super Online"/>4</span></a>
+		        <a href="#" title="Super Online"><span><img src="data1/tooltips/farmers_market_banner_1.jpg" alt="Super Online"/>5</span></a>
+	        </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com">jquery slider</a> by WOWSlider.com v7.8</div>
+        <div class="ws_shadow"></div>
+        </div>	
+        <script type="text/javascript" src="engine1/wowslider.js"></script>
+        <script type="text/javascript" src="engine1/script.js"></script>
+        <!-- End WOWSlider.com BODY section -->
+    </div>
+
+    <div id="lista-pasos" class="col-md-10">
+        <img height="200" width="200" class="col-md-3" src="~/Images/nota5.png" />
+        <div class="col-md-9" id="pasos">
+            <ol class="">
+                <li>Crea tu lista de compras</li>
+                <li>Elige los productos según tu lista</li>
+                <li>Compara el precio total de tu lista en los diferentes Súper Mercados</li>
+            </ol>
+        </div>
+    </div>
+
+
+
+    <div id="miBanner" class="col-lg-12">
+        <div class="col-lg-4">
+            <img src="~/Images/ic_compras.png" />
+        </div>
+        <div class="col-lg-4">
+            <div class="col-lg-12" id="comprar">
+                <br /><br /><br />
+                <a href="/Jumbo/producto"><img href class="col-lg-12" id="imagenComprar" src="~/Images/com.jpg" /></a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <br />
+            <img class="col-lg-12" src="~/Images/io.png" />
+        </div>
+    </div>
+
+
+    <div id="super-mercados" class="col-md-12">
+        <br /><hr />
+        Puedes pedir tus productos de los siguientes Súper Mercados
+                
+        @foreach(var item in ViewBag.superMercados)
+        {
+            var nombre = @item.nombre.Replace(" ", "");
+            <div>
+                <a href="~/@nombre/producto"><img class="super-imagen col-md-3" alt="@item.nombre" src="~/Images/mis-imagenes/super-mercados/@(item.nombre).png" /></a>
+            </div>   
+        }
+    </div>
+
+
+    <script src="~/Scripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript">
+        
+        $('#lista-pasos').click(function () {
+            window.location.href = '/lista';
+        });
+        
+    </script>
+}
+
+

@@ -1,0 +1,115 @@
+﻿@model IEnumerable<SuperOnline_ASP_NET_MVC.Models.ArticuloCarrito>
+@{
+    ViewBag.Title = "RevisarCarrito";
+}
+
+<style>
+    .nombreSuperMercado {
+        font-size: 30px;
+    }
+    .totalGeneral {
+        color: white;
+        font-size: 20px;
+        background-color: #f0ad4e;
+    }
+    .boton-ir {
+        padding: 0;
+    }
+    .table {
+        margin-bottom: 5px;
+    }
+</style>
+<h3>RevisarCarrito</h3>
+<hr />
+
+<div class="col-lg-6">
+    <div class="nombreSuperMercado col-lg-12">@ViewBag.superMercado1</div>
+    <table class="col-lg-12 table table-bordered">
+        <tr>
+            <th>Artículo</th><th>Cantidad</th><th>Precio</th><th>Sub Total</th>
+        </tr>
+        @{
+            foreach(var item in Model) { 
+                <tr>
+                    <td>@item.nombre</td>
+                    <td>@item.cant</td>
+                    <td>RD$@item.precio</td>
+                    <td>RD$@item.total</td>
+                </tr>
+            }
+        }
+        <tr class="totalGeneral"><td colspan="4">Total: RD$@ViewBag.totalSuper1</td></tr>
+    </table>
+    <div class="col-lg-4 boton-ir"> <button class="btn btn-default" onclick="guardarCarritoEnSession('@ViewBag.superMercado1')">Seguir en @ViewBag.superMercado1</button></div>
+</div>
+
+<div class="col-lg-6">
+    <div class="nombreSuperMercado col-lg-12">@ViewBag.superMercado2</div>
+    <table class="col-lg-12 table table-bordered">
+        <tr>
+            <th>Artículo</th><th>Cantidad</th><th>Precio</th><th>Sub Total</th>
+        </tr>
+        @foreach (var item in ViewBag.otroSuperMercado)
+        { 
+            <tr>
+                <td>@item.nombre</td>
+                <td>@item.cant</td>
+                <td>RD$@item.precio</td>
+                <td>RD$@item.total</td>
+            </tr>
+        }
+        <tr class="totalGeneral"><td colspan="4">Total: RD$@ViewBag.totalSuper2</td></tr>
+    </table>
+    <div class="col-lg-4 boton-ir"> <button id="" class="btn btn-default" onclick="guardarCarritoEnSession('@ViewBag.superMercado2')">Ir a @ViewBag.superMercado2</button></div>
+
+</div>
+
+<script src="~/Scripts/jquery-1.11.2.min.js"></script>
+<script>
+    
+   
+
+    var carrito = @Html.Raw(Json.Encode(@ViewBag.otroSuperMercado));
+    
+    function guardarCarritoEnSession(superMercado) {
+       
+        superMercado = superMercado.replace(" ", "");
+        console.log("SuperMercado: "+superMercado);
+        var postData = { articulos: JSON.stringify(carrito) };
+
+        $.ajax({
+            type: "POST",
+            url: "/Carrito/guardarCarrito"+superMercado.replace(" ", "")+"EnSession",
+            data: postData,
+            //success: function (data) {
+
+            //    if (data == false) {
+            //        console.log("ajax success: false, carrito no guardado");
+                    
+                    
+            //    } else {
+            //        console.log("ajax success: true, carrito guardado en session");
+            //        irA();
+            //    }   
+            //},
+            success: guardarCarrito(),
+            error: function (xhr, status, error) {
+                console.log("ajax error: when getting carrito");
+            },
+            dataType: "json",
+            traditional: true
+        });
+
+        function guardarCarrito(){
+            if(superMercado == "Jumbo"){
+                window.location = "@Url.Action("producto", "Jumbo")";
+            }else if(superMercado == "LaSirena"){
+                window.location = "@Url.Action("producto", "LaSirena")";
+            }
+        }
+    }
+
+</script>
+
+@* //window.location = "@Url.Action("producto";
+                }//@ViewBag.superMercado2.Replace(" ", ""))"*@

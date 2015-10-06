@@ -1,0 +1,64 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.Producto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Producto</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.producto_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.producto_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.marca)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.marca)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.contenido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.contenido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.precio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.precio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tipos.categoria)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tipos.categoria)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Super_mercados.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Super_mercados.nombre)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

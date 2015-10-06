@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SuperOnline_ASP_NET_MVC.Models.Producto>
+@{
+    ViewBag.Title = "Jumbo";
+}
+<link href="~/Content/themes/base/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/themes/base/mis-css/jumbo.css" rel="stylesheet" />
+<h2>Jumbo</h2>
+
+<div id="lista-compras" class="col-lg-2">
+    <div id="lista-compras-titulo"></div>
+    <div id="lista-compras-contenido"></div>
+</div>
+
+
+<div class="col-lg-10"></div>
+
+
+<div id="articulos" class="col-lg-12">
+    @foreach (var item in Model) {
+    <article id="articulo-@(item.nombre.Replace(" ", "_"))" class="col-lg-3">
+        <img src="~/Images/mis-imagenes/Imagenes-productos/@(item.nombre).PNG" />
+        <div id="articulo-nombre"> @Html.DisplayFor(modelItem => item.nombre)</div>
+        <div id="articulo-precio"> @Html.DisplayFor(modelItem => item.precio)</div>
+
+    </article>
+    }
+</div>
+
+@*<div id="carrito" class="col-lg-12">
+    <table id="carrito-contenido">
+        <tr>
+            <th>Cant</th><th>Producto</th><th>Precio</th><th>Total</th>
+        </tr>
+    </table>
+</div>*@
+
+<div id="carrito" class="col-lg-4">
+    
+</div>
+
+<script src="~/Scripts/jquery-1.11.2.min.js"></script>
+<script src="~/Scripts/jumbo.js"></script>
+
+<script>
+    var array = @Html.Raw(Json.Encode(@ViewBag.lista));
+
+    $('#lista-compras-titulo').html("Lista: "+array[0]);
+    for(var i = 2; i < array.length; i++) {
+        
+        //document.getElementById('lista').innerHTML += array[i]+"<br>";
+        document.getElementById('lista-compras-contenido').appendChild(listaItem(array[i]));
+    }
+
+    var articulosCarrito =  @Html.Raw(Json.Encode(@ViewBag.articulosCarrito));
+    for(var i = 2; i < articulosCarrito.length; i++) {
+        
+        document.getElementById('carrito').appendChild(crearCarritoItem(articulosCarrito[i]));
+    }
+</script>

@@ -1,0 +1,67 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.Comentario
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Comentario</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.comentario_id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.comentario_id)
+            @Html.ValidationMessageFor(model => model.comentario_id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.comentario1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.comentario1)
+            @Html.ValidationMessageFor(model => model.comentario1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fecha)
+            @Html.ValidationMessageFor(model => model.fecha)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.usuario_id, "Usuario")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("usuario_id", String.Empty)
+            @Html.ValidationMessageFor(model => model.usuario_id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.producto_id, "Producto")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("producto_id", String.Empty)
+            @Html.ValidationMessageFor(model => model.producto_id)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

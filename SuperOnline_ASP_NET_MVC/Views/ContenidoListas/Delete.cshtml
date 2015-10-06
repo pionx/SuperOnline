@@ -1,0 +1,39 @@
+﻿@model SuperOnline_ASP_NET_MVC.Models.Contenido_Listas
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Contenido_Listas</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.contenido_listas_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.contenido_listas_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Lista.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Lista.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tipos.categoria)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tipos.categoria)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

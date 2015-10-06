@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SuperOnline_ASP_NET_MVC.Models.Pedido>
+<style>
+    .inline {
+        display: inline-block;
+    }
+</style>
+@{
+    ViewBag.Title = "Index";
+}
+@if (@ViewBag.logeado == false) { 
+    <div class="col-lg-12"><h3>Debes estar registrado para hacer un pedido</h3></div>
+    <div class="inline"><a href="/usuario/iniciarSesion"><button class="btn btn-default">Iniciar Sesión</button></a></div>
+    <div class="inline"><a href="/usuario/Registrarse"><button class="btn btn-default">Registrarse</button></a></div>
+
+}else{
+if(ViewBag.hayPedidos == true){
+    <div class="col-lg-8">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.pedido_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.fecha)
+            </th>
+            <th>
+                Súper Mercado
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total_precio)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pedido_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Super_mercados.nombre)
+            </td>
+            <td>
+                RD$@Html.DisplayFor(modelItem => item.total_precio)
+            </td>
+        </tr>
+    }
+
+    </table>
+        </div>
+}else{
+    <div id="no-hay-pedidos" class="col-lg-12"><h3>No has ordenado pedidos</h3></div>
+    <div><a href="~/Jumbo/producto"><button class="btn btn-default">Ver Productos</button></a></div>
+}
+}
